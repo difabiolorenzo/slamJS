@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'LL Brown';
+    src: local('LL Brown Regular'), local('LL-Brown-Regular'),
+        url('Brown-Regular.woff2') format('woff2'),
+        url('Brown-Regular.woff') format('woff'),
+        url('Brown-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }

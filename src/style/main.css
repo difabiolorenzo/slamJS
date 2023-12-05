@@ -1,0 +1,80 @@
+:root {
+    --accent_1: #090045;
+    --accent_2: #1d275d;
+    --letter_color: #bb5700;
+    --white_background: #d0cfd5;
+    --accent: #a8abc0;
+
+    --cell_yellow: #e6e916;
+    --cell_yellow_gradient: #f2b30f;
+
+    --letter: #050f7f;
+
+    --grid_background_color_1: #0a1d48;
+    --grid_background_color_2: #8cd2f2;
+    --grid_background_color_3: #55bce9;
+    --grid_background_color_4: #153b9c;
+}
+body {
+    font-family: "LL Brown";
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: rgb(15,49,242);
+    background: linear-gradient(-2deg, var(--grid_background_color_4) 0%, var(--grid_background_color_3) 28%, var(--grid_background_color_2) 28%, var(--grid_background_color_1) 100%);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.hided_cell {
+    background: var(--cell_yellow_gradient);
+    background: linear-gradient(342deg, var(--cell_yellow_gradient) 0%, var(--cell_yellow) 100%);
+}
+.open_cell {
+    background: #ffffff;
+    color: var(--letter);
+    font-weight: bold;
+    text-align: center;
+    font-size: x-large;
+}
+td {
+    height: 5vh;
+    width: 5vh;
+}
+div#definition_placeholder {
+    border-radius: 5px;
+    width: 100vw;
+    background: #ffffff47;
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    padding: 1vh;
+    flex-direction: column;
+}
+div#definition_placeholder::before {
+    content:"";
+    background-color: var(--white_background);
+    border-radius: 5px;
+    position: absolute;
+}
+
+a#definition, #definition_explication, #definition_lettre {
+    color: var(--letter);
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+    padding: 1vw;
+    background-color: var(--white_background);
+    border-radius: 1vh;
+}
+
+div#definition_reponse {
+    display: flex;
+    justify-content: center;
+}
+
+span#definition_highlight {
+    color: var(--letter_color);
+}

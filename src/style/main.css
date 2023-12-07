@@ -2,11 +2,11 @@
     --accent_1: #090045;
     --accent_2: #1d275d;
     --letter_color: #bb5700;
-    --white_background: #d0cfd5;
-    --accent: #a8abc0;
+    --white_background: #ebebeb;
+    --background_radius: #ffffff59;--accent: #a8abc0;
 
-    --cell_yellow: #e6e916;
-    --cell_yellow_gradient: #f2b30f;
+    --cell_yellow: #fbff06;
+    --cell_yellow_gradient: #e7a00b;
 
     --letter: #050f7f;
 
@@ -30,7 +30,7 @@ body {
 }
 .hided_cell {
     background: var(--cell_yellow_gradient);
-    background: linear-gradient(342deg, var(--cell_yellow_gradient) 0%, var(--cell_yellow) 100%);
+    background: linear-gradient(342deg, var(--cell_yellow_gradient) 0%, var(--cell_yellow) 80%);
 }
 .open_cell {
     background: #ffffff;
@@ -45,8 +45,7 @@ td {
 }
 div#definition_placeholder {
     border-radius: 5px;
-    width: 100vw;
-    background: #ffffff47;
+    background: var(--background_radius);
     display: flex;
     justify-content: center;
     width: 80vw;
@@ -60,21 +59,53 @@ div#definition_placeholder::before {
     position: absolute;
 }
 
-a#definition, #definition_explication, #definition_lettre {
+a#definition_question, #definition_explication {
     color: var(--letter);
     font-size: x-large;
     font-weight: bold;
     text-align: center;
-    padding: 1vw;
     background-color: var(--white_background);
+}
+
+a#definition_question, #definition_explication, #definition_lettre {
+    padding: 1vw;
     border-radius: 1vh;
 }
 
 div#definition_reponse {
     display: flex;
+    background-color: var(--accent_1);
+    border-radius: 0 0 1vh 1vh;
     justify-content: center;
+    width: min-content;
+    padding: 1vh;
+    margin-top: -1vh;
+    color: white;
+    font-size: x-large;
+    align-items: center;
 }
 
 span#definition_highlight {
     color: var(--letter_color);
+}
+
+div#definition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a#definition_explication {
+    width: max-content;
+}
+
+a#definition_lettre {
+    transform: scale(1.5);
+}
+
+td.number_cell {
+    color: white;
+    text-align: center;
+    border: 3px solid white;
+    transform: scale(0.8);
 }

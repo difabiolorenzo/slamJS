@@ -10,10 +10,10 @@
 
     --letter: #050f7f;
 
-    --grid_background_color_1: #0a1d48;
-    --grid_background_color_2: #8cd2f2;
-    --grid_background_color_3: #55bce9;
-    --grid_background_color_4: #153b9c;
+    --grid_background_color_1: #002579;
+    --grid_background_color_2: #88daff;
+    --grid_background_color_3: #5eceff;
+    --grid_background_color_4: #002992;
 }
 body {
     font-family: "LL Brown";
@@ -28,22 +28,7 @@ body {
     align-items: center;
     justify-content: space-around;
 }
-.hided_cell {
-    background: var(--cell_yellow_gradient);
-    background: linear-gradient(342deg, var(--cell_yellow_gradient) 0%, var(--cell_yellow) 80%);
-}
-.open_cell {
-    background: #ffffff;
-    color: var(--letter);
-    font-weight: bold;
-    text-align: center;
-    font-size: x-large;
-}
-td {
-    height: 5vh;
-    width: 5vh;
-}
-div#definition_placeholder {
+#definition_placeholder {
     border-radius: 5px;
     background: var(--background_radius);
     display: flex;
@@ -52,27 +37,22 @@ div#definition_placeholder {
     padding: 1vh;
     flex-direction: column;
 }
-div#definition_placeholder::before {
-    content:"";
-    background-color: var(--white_background);
-    border-radius: 5px;
-    position: absolute;
-}
 
-a#definition_question, #definition_explication {
+#definition_question, #definition_explication {
     color: var(--letter);
     font-size: x-large;
     font-weight: bold;
     text-align: center;
     background-color: var(--white_background);
-}
-
-a#definition_question, #definition_explication, #definition_lettre {
-    padding: 1vw;
     border-radius: 1vh;
 }
 
-div#definition_reponse {
+#definition_question {
+    padding: 3vh 1vw;
+    z-index: 2;
+}
+
+#definition_reponse {
     display: flex;
     background-color: var(--accent_1);
     border-radius: 0 0 1vh 1vh;
@@ -83,29 +63,124 @@ div#definition_reponse {
     color: white;
     font-size: x-large;
     align-items: center;
+    animation: .5s displayDefinitionAnswer;
+    z-index: 1;
+}
+div#definition_reponse.hided, #definition.hided div#definition_reponse {
+    transform: translateY(-10vh);
+    animation: .5s hideDefinitionAnswer;
+    transform-origin: top;
+    opacity: 0;
+}
+
+@keyframes hideDefinitionAnswer {
+    0% {
+        transform: translateY(0vh);
+        opacity: 100%;
+    }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0%;
+    }
+}
+@keyframes displayDefinitionAnswer {
+    0% {
+        transform: translateY(-10vh);
+        opacity: 0%;
+    }
+    100% {
+        transform: translateY(0vh);
+        opacity: 100%;
+    }
 }
 
 span#definition_highlight {
     color: var(--letter_color);
 }
 
-div#definition {
+#definition {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-a#definition_explication {
+#definition_explication {
     width: max-content;
+    font-size: large;
+    margin: 1vh 1vw;
+    padding: 1vh 1vw;
 }
 
-a#definition_lettre {
-    transform: scale(1.5);
+#definition_lettre {margin: 0 1vw;transform: scale(1.5);}
+
+
+span#definition_hiding {
+    text-decoration-line: underline;
 }
 
-td.number_cell {
-    color: white;
-    text-align: center;
-    border: 3px solid white;
-    transform: scale(0.8);
+div#actions {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+#definition.hided #definition_question, #definition.hided #definition_placeholder {
+    transform: scaleY(0);
+    opacity: 0%;
+}
+
+#definition.hided #definition_question  {
+    animation: .5s hideDefinition;
+    z-index: 2;
+}
+
+#definition.hided #definition_placeholder  {
+    animation: .75s hideDefinition;
+    /* z-index: 0; */
+}
+
+@keyframes hideDefinition {
+    0% {
+        transform: scaleY(1);
+        opacity: 100%;
+    }
+    50% {
+        transform: scaleY(1);
+        opacity: 100%;
+    }
+    100% {
+        transform: scaleY(0);
+        opacity: 0%;
+    }
+}
+
+#definition.displayed #definition_question, #definition.displayed #definition_placeholder {
+    transform: scaleY(1);
+    opacity: 100%;
+}
+
+#definition.displayed #definition_question  {
+    animation: .5s displayDefinition;
+    z-index: 2;
+}
+
+#definition.displayed #definition_placeholder  {
+    animation: .25s displayDefinition;
+}
+
+@keyframes displayDefinition {
+    0% {
+        transform: scaleY(0);
+        opacity: 0%;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 100%;
+    }    
+}
+
+a.grid_letter {
+    transform: scale(2.25) translateY(-0.125vh);
+    /* align-self: baseline; */
+    font-size: 2.5vh;
 }

@@ -6,6 +6,7 @@
     <title>Slam</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./src/style/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./src/style/grid.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./src/font/Brown-Regular/style.css'>
     <script src='./src/js/main.js'></script>
     <script type="text/javascript" src="./src/js/taffy.js"></script>
@@ -13,12 +14,18 @@
     <script type="text/javascript" src="./src/js/data/grille.js"></script>
 </head>
 <body onload="initGame()">
-    <div id="grid"></div>
-    <div id="definition">
+    <div id="actions">
+        <button onclick="createGrid(10, 10);">createGrid</button>
+        <button onclick="getRandomDefinition();">nouvelleDef</button>
+        <button onclick="toggleDefinition();">AfficherDefinition</button>
+        <button onclick="toggleDefinitionReponse();">AfficherReponse</button>
+    </div>
+    <div id="grid_placeholder"></div>
+    <div id="definition" class="hided">
         <div id="definition_placeholder">
             <a id="definition_question"></a>
         </div>
-        <div id="definition_reponse">
+        <div id="definition_reponse" class="hided">
             <a id="definition_lettre"></a>
             <a id="definition_explication"></a>
         </div>

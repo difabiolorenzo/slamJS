@@ -1,0 +1,42 @@
+.hided_cell {
+    background: var(--cell_yellow_gradient);
+    background: linear-gradient(342deg, var(--cell_yellow_gradient) 0%, var(--cell_yellow) 80%);
+}
+.tried_cell {
+    background: var(--cell_yellow_gradient);
+    background: linear-gradient(342deg, var(--cell_yellow_gradient) 0%, var(--cell_yellow) 80%);
+}
+.open_cell {
+    background: #ffffff;
+    color: var(--letter);
+    font-weight: bold;
+}
+.number_cell {
+    color: white;
+    text-align: center;
+} 
+table {
+    border-collapse: collapse;
+    animation: 0.25s creatingGrid;
+}
+td div {
+    aspect-ratio: 1 / 1;
+    height: 6vh;
+    /* width: 5vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+td {
+    margin: 0.2vh 0.2vw;
+    display: inline-table;
+}
+
+@keyframes creatingGrid {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

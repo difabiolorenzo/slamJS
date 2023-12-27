@@ -49,22 +49,21 @@ body {
 
 #definition_question {
     padding: 3vh 1vw;
-    z-index: 2;
 }
 
 #definition_reponse {
     display: flex;
     background-color: var(--accent_1);
-    border-radius: 0 0 1vh 1vh;
+    border-radius: 1vh 1vh;
     justify-content: center;
     width: min-content;
     padding: 1vh;
-    margin-top: -1vh;
+    margin-top: 1vh;
     color: white;
     font-size: x-large;
     align-items: center;
     animation: .5s displayDefinitionAnswer;
-    z-index: 1;
+    z-index: -1;
 }
 div#definition_reponse.hided, #definition.hided div#definition_reponse {
     transform: translateY(-10vh);
@@ -131,12 +130,10 @@ div#actions {
 
 #definition.hided #definition_question  {
     animation: .5s hideDefinition;
-    z-index: 2;
 }
 
 #definition.hided #definition_placeholder  {
     animation: .75s hideDefinition;
-    /* z-index: 0; */
 }
 
 @keyframes hideDefinition {
@@ -161,7 +158,6 @@ div#actions {
 
 #definition.displayed #definition_question  {
     animation: .5s displayDefinition;
-    z-index: 2;
 }
 
 #definition.displayed #definition_placeholder  {

@@ -10,7 +10,7 @@ function replaceAt(string, index, replace, length) {
 
 function initGame() {
     getRandomDefinition();
-    
+    createGrid(10, 10);
 }
 
 function createGrid(li, col) {
@@ -28,6 +28,40 @@ function createGrid(li, col) {
     fillGrid();
 }
 
+function displayLetter(letter) {
+    var word_data = game.grille_en_cours;
+    var cell_to_display = []
+
+    for (var i=0; i<word_data.length; i++) {
+        for (var j=0; j<word_data[i].mot.length; j++) {
+            checkLetter(letter)
+        }
+    }
+
+    function checkLetter(letter) {
+        if (word_data[i].mot[j] != letter) {
+            return;
+        }
+        
+        console.log(word_data[i].mot[j], word_data[i].orientation, word_data[i].x, word_data[i].y, word_data[i].visibilite[j])
+
+        
+        if (word_data[i].orientation == "v") {
+            var cell_id = `cell_${(word_data[i].y) + 1 + j}_${(word_data[i].x) + 1}`
+        } else {
+            var cell_id = `cell_${(word_data[i].y) + 1}_${(word_data[i].x) + 1 + j}`
+        }
+
+        var cell_html = document.getElementById(cell_id);
+        cell_to_display.push(cell_id)
+
+
+        cell_html.className = "open_cell"
+        cell_html.innerHTML = "<a class=\"grid_letter\">" + word_data[i].mot[j] + "</a>"
+        
+    }
+}
+
 function fillGrid() {
     var selected_grid_id = 0;
     game.grille_en_cours = [];
@@ -40,8 +74,8 @@ function fillGrid() {
         var y = word_data.y;
         var orientation = word_data.orientation;
         var id = word_data.id;
+        game.grille_en_cours[i].visibilite = ""
 
-        
         if (orientation == "h") {
             var number_cell = document.getElementById(`cell_${y+1}_${x}`);
             number_cell.innerHTML = id;
@@ -52,7 +86,6 @@ function fillGrid() {
             number_cell.className = "number_cell";
         }
 
-        console.log(word, word.length)
         for (var j=0; j<word.length; j++) {
             if (orientation == "h") {
                 var cell = document.getElementById(`cell_${y+1}_${x+1+j}`);
@@ -60,11 +93,11 @@ function fillGrid() {
                 var cell = document.getElementById(`cell_${y+1+j}_${x+1}`);
             }
 
-            // cell.className = "hided_cell"
-            // cell.innerHTML = ""
+            cell.className = "hided_cell"
+            cell.innerHTML = ""
 
-            cell.className = "open_cell"
-            cell.innerHTML = "<a class=\"grid_letter\">" + word[j] + "</a>"
+            // cell.className = "open_cell"
+            // cell.innerHTML = "<a class=\"grid_letter\">" + word[j] + "</a>"
 
             // AFFICHAGE HASARD LETTRE: A CHANGER
             // if (Math.random() + .5 >> 0) {
@@ -74,7 +107,12 @@ function fillGrid() {
             //     cell.className = "open_cell";
             //     cell.innerHTML = "<a class=\"grid_letter\">" + word[j] + "</a>";
             // }
-        }       
+
+            //AJOUT ATTRIBUT VISIBILITE LETTRE
+            game.grille_en_cours[i].visibilite += "0";
+        }    
+        
+        console.log(word, game.grille_en_cours[i].visibilite, x, y, orientation)   
     }
 }
 

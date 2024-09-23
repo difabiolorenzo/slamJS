@@ -3,9 +3,10 @@
     background: linear-gradient(342deg, var(--cell_yellow_gradient) 0%, var(--cell_yellow) 80%);
 }
 .tried_cell {
-    background: var(--cell_yellow_gradient);
-    background: linear-gradient(342deg, var(--cell_yellow_gradient) 0%, var(--cell_yellow) 80%);
+    background: #676666;
+    background: linear-gradient(0, var(--cell_gray_gradient) 10%, #cbc9c6 80%);
 }
+
 .open_cell {
     background: #ffffff;
     color: var(--letter);
@@ -14,6 +15,9 @@
 .number_cell {
     color: white;
     text-align: center;
+    box-shadow: inset 0px 0px 0px 2px white;
+    /* margin: -3px; */
+    transform: scale(0.9);
 } 
 table {
     border-collapse: collapse;
@@ -21,22 +25,48 @@ table {
 }
 td div {
     aspect-ratio: 1 / 1;
-    height: 6vh;
+    height: 5vh;
     /* width: 5vh; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 td {
-    margin: 0.2vh 0.2vw;
+    margin: 1px;
     display: inline-table;
 }
 
 @keyframes creatingGrid {
     0% {
-        transform: scale(0);
+        transform: scale(0.8);
     }
     100% {
         transform: scale(1);
     }
+}
+
+a.grid_number {
+    font-size: x-large;
+}
+
+
+a.grid_letter {
+    transform: scale(2.25) translateY(-0.125vh);
+    /* align-self: baseline; */
+    font-size: 2vh;
+    user-select: none;
+}
+
+.grid_making_cell.selectabled:hover {
+    box-shadow: inset 0px 0px 0px 5px white;
+    background-color: #ffffff47;
+}
+
+.grid_making_cell.only_landscape:hover {
+    box-shadow: inset -5px 0px 0px 0px white;
+    background-color: #ffffff47;
+}
+.grid_making_cell.only_portrait:hover {
+    box-shadow: inset 0px -5px 0px -1px white;
+    background-color: #ffffff47;
 }

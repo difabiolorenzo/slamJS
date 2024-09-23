@@ -7,6 +7,8 @@
 
     --cell_yellow: #fbff06;
     --cell_yellow_gradient: #e7a00b;
+    --cell_gray: #c7cad2;
+    --cell_gray_gradient: #68676d;
 
     --letter: #050f7f;
 
@@ -29,12 +31,10 @@ body {
     justify-content: space-around;
 }
 #definition_placeholder {
-    border-radius: 5px;
     background: var(--background_radius);
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     width: 80vw;
-    padding: 1vh;
     flex-direction: column;
 }
 
@@ -45,6 +45,11 @@ body {
     text-align: center;
     background-color: var(--white_background);
     border-radius: 1vh;
+}
+
+#definition_question {
+    border-radius: 0.5vh;
+    box-shadow: 0px 0px 0px 1.5vh var(--background_radius);
 }
 
 #definition_question {
@@ -97,7 +102,7 @@ span#definition_highlight {
     color: var(--letter_color);
 }
 
-#definition {
+#definition_find{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,7 +110,6 @@ span#definition_highlight {
 
 #definition_explication {
     width: max-content;
-    font-size: large;
     margin: 1vh 1vw;
     padding: 1vh 1vw;
 }
@@ -136,7 +140,7 @@ div#actions {
     animation: .75s hideDefinition;
 }
 
-@keyframes hideDefinition {
+@keyframes hidedefinition_find{
     0% {
         transform: scaleY(1);
         opacity: 100%;
@@ -164,7 +168,7 @@ div#actions {
     animation: .25s displayDefinition;
 }
 
-@keyframes displayDefinition {
+@keyframes displaydefinition_find{
     0% {
         transform: scaleY(0);
         opacity: 0%;
@@ -173,10 +177,4 @@ div#actions {
         transform: scaleY(1);
         opacity: 100%;
     }    
-}
-
-a.grid_letter {
-    transform: scale(2.25) translateY(-0.125vh);
-    /* align-self: baseline; */
-    font-size: 2.5vh;
 }

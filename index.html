@@ -13,15 +13,18 @@
     <script type="text/javascript" src="./src/js/data/definition.js"></script>
     <script type="text/javascript" src="./src/js/data/grille.js"></script>
 </head>
-<body onload="initGame()">
+<body onload="init()">
     <div id="actions">
-        <button onclick="createGrid(10, 10);">createGrid</button>
+        <button onclick="switchMode()">switchMode</button>
+        <button onclick="switchMode('making')">switchMode('making')</button>
+        <br>
         <button onclick="getRandomDefinition();">nouvelleDef</button>
         <button onclick="toggleDefinition();">AfficherDefinition</button>
         <button onclick="toggleDefinitionReponse();">AfficherReponse</button>
+
     </div>
     <div id="grid_placeholder"></div>
-    <div id="definition" class="hided">
+    <div id="definition_find" style="display: none">
         <div id="definition_placeholder">
             <a id="definition_question"></a>
         </div>
@@ -29,6 +32,9 @@
             <a id="definition_lettre"></a>
             <a id="definition_explication"></a>
         </div>
+    </div>
+    <div id="definition_making" style="display: none">
+
     </div>
 </body>
 </html>
